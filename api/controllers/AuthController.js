@@ -15,6 +15,7 @@ const loginUser = async (req, res) => {
         const user = await loginUserService(req, res);
         if (user) {
           const token = await createToken(user);
+          console.log(token)
           const { password, ...info } = user._doc;
           return res.status(200).json({ ...info, token });
         }
