@@ -22,7 +22,12 @@ function Login() {
         navigate('/login');
       }
       localStorage.setItem("currentUser", JSON.stringify(response.data));
-      navigate("/");
+
+      if(response.data.isMechanic){
+        navigate("/mechanic")
+      }else{
+        navigate("/client")
+      }
     } catch (err) {
       console.log(err.message)
       setError(err.message);

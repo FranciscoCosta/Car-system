@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Footer } from "./components/index";
-import {Home,Login, Register} from "./pages/index"
+import {Home,Login, Register, Client, Mechanic} from "./pages/index"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
@@ -31,7 +31,15 @@ function App() {
         {
           path: "/register",
           element: <Register />,
-        }
+        },
+        {
+          path: "/mechanic",
+          element: <Mechanic />,
+        },
+        {
+          path: "/client",
+          element: <Client />,
+        },
       ],
     },
   ]);
