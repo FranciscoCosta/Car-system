@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Footer } from "./components/index";
-import {Home} from "./pages/index"
+import {Home,Login} from "./pages/index"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
@@ -24,6 +24,10 @@ function App() {
           path: "/",
           element: <Home />,
         },
+        {
+          path: "/login",
+          element: <Login />,
+        }
       ],
     },
   ]);

@@ -1,12 +1,112 @@
 .Home{
     width: 100%;
     min-height: 100vh;
-    border: 1px solid red;
 
     .Home__container{
         width: 90%;
         margin: 0 auto;
         padding: 5rem 0;
-        border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        
+        .Home__container-hero{
+            display: flex;
+            
+            .container-info{
+                flex: 2;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                p{
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    color: var(--color-text);
+                    line-height: 3.2rem;
+                }
+                button{
+                    margin-top: 1rem;
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: var(--primary-color);
+                    color: white;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    width: 120px;
+                }
+            }
+            img{
+                flex: 3;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .Home__container-service{
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2{
+                font-size: 3.5rem;
+                font-weight: 600;
+                color: var(--color-text);
+            }
+
+            .container-service{
+                margin-top: 4rem;
+                display: flex;
+                gap: 4rem;
+                align-items: center;
+                justify-content: center;
+                
+                .service-card{
+                    padding: 2rem;
+                    border: 1px solid var(--primary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2rem;
+                    flex-direction: column;
+                    width: 300px;
+                    height: 400px;
+                    border-radius: 10px;
+
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    cursor: pointer;
+                    
+
+                    h3{
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                        color: var(--color-text);
+
+                    }
+                    p{
+                        text-align: center;
+                        font-size: 1.2rem;
+                    }
+
+
+                }
+            }
+        }
+
+        
     }
+}
+
+.service-card:hover{
+    transition: 0.5s all ease-in-out;
+    transform: translateY(-15px);
+    background-color: var(--primary-color);
+    color: white;
 }
