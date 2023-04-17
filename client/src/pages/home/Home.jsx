@@ -1,8 +1,13 @@
 import React from 'react'
+import './Home.scss'
 
 function Home() {
   return (
-    <div>AQuiiiiiiiiiiiii</div>
+    <div className='Home'>
+      <div className="Home__container">
+        Hero
+      </div>
+    </div>
   )
 }
 

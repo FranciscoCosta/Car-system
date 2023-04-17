@@ -1,0 +1,12 @@
+.Home{
+    width: 100%;
+    min-height: 100vh;
+    border: 1px solid red;
+
+    .Home__container{
+        width: 90%;
+        margin: 0 auto;
+        padding: 5rem 0;
+        border: 1px solid blue;
+    }
+}
