@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import  {useNavigate} from 'react-router-dom'
 import './Register.scss'
+import registerAPI from '../../service/Register';
 
 function Register() {
 
@@ -9,7 +10,7 @@ function Register() {
       username: "",
       email: "",
       password: "",
-      isMechanic:"",
+      isMechanic: false,
       desc: "",
     });
 
@@ -17,6 +18,18 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(user)
+    try {
+      const response = await registerAPI(user);
+      console.log(response)
+      if (response.status === 201) {
+        navigate('/login');
+      }
+      setError(response.response.data.message)
+    } catch (err) {
+      console.log(err.message)
+      setError(err.message);
+    }
   };
 
   const handleChange = (e) => {
