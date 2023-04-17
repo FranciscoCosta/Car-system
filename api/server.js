@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./mongo/connect.js";
 import bodyParser from "body-parser";
+import AuthRoute from "./routes/AuthRoute.js";
 
 
 const app = express();
@@ -12,6 +13,7 @@ dotenv.config();
 
 app.use(cors());
 app.use(express.json());
+app.use(AuthRoute)
 
 
 app.get("/", (req, res) => {
