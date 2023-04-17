@@ -1,3 +1,3 @@
 import Home from "./home"
-
-export { Home };
+import Login from "./login"
+export { Home, Login };

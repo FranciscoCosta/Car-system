@@ -25,10 +25,20 @@ function Navbar() {
         {!currentUser.role ? (
           <div className="Navbar__menu">
             <ul>
-              <h2 id="Home">Home</h2>
-              <h2 id="Serviços">Serviços</h2>
-              <h2>Registro</h2>
-              <button>Login</button>
+              <h2
+              id="Home"
+              onClick={() => {navigate("/")}}
+              >Home</h2>
+              <h2
+              id="Serviços"
+              onClick={() => {navigate("/")}}
+              >Serviços</h2>
+              <h2
+              onClick={() => {navigate("/register")}}
+              >Registro</h2>
+              <button
+              onClick={() => {navigate("/login")}}
+              >Login</button>
             </ul>
           </div>
         ) : currentUser.role === "client" ? (

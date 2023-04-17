@@ -46,6 +46,9 @@ function Home() {
             </div>
             </div>
             </div>
+        <div className="Home__container-contato">
+          <h2>Contato</h2>
+        </div>
       </div>
     </div>
   );
