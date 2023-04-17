@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../../assets/index";
 import "./Navbar.scss";
@@ -9,20 +9,34 @@ import "./Navbar.scss";
 //   role: 'client'
 // }
 
-const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
-
-
 function Navbar() { 
 
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+
+useEffect(() => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+  console.log(currentUser.isMechanic)
+  setCurrentUser(currentUser);
+  setIsLoading(false)
+  
+}, [currentUser])
+
+const handleLogout = () => {
+  console.log("sai")
+  localStorage.removeItem("currentUser");
+  navigate("/");
+}
 
   return (
     <div className="Navbar">
-      <div className="Navbar__container">
+      { !isLoading && <div className="Navbar__container">
         <div className="Navbar__logo">
           <img src={Logo} alt="logo-ultracar" />
         </div>
-        {!currentUser.role ? (
+        {!currentUser.username ? (
           <div className="Navbar__menu">
             <ul>
               <h2
@@ -41,13 +55,15 @@ function Navbar() {
               >Login</button>
             </ul>
           </div>
-        ) : currentUser.role === "client" ? (
+        ) : !currentUser.isMechanic? (
           <div className="Navbar__menu">
             <ul>
               <h2>Home</h2>
               <h2>Pedidos</h2>
-              <h2>Carros</h2>
-              <button>Logout</button>
+              <h2>Veiculos</h2>
+              <button
+              onClick={handleLogout}
+              >Logout</button>
             </ul>
           </div>
         ) : (
@@ -56,11 +72,13 @@ function Navbar() {
               <h2>Home</h2>
               <h2>Ordem de serviço</h2>
               <h2>Peças</h2>
-              <button>Logout</button>
+              <button 
+              type="button"
+              onClick={handleLogout}>Logout</button>
             </ul>
           </div>
         )}
-      </div>
+      </div>}
       <div className="Navbar__container-mobile"></div>
     </div>
   );
