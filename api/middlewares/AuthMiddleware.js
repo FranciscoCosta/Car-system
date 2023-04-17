@@ -5,27 +5,27 @@ const verifyRegister = async (req, res, next) => {
   const checkUsername = await User.findOne({ username: username });
   const checkEmail = await User.findOne({ email: email });
   if (checkUsername) {
-    return res.status(400).json({ message: "Username already exists!" });
+    return res.status(400).json({ message: "Usuário já existe!" });
   }
   if (checkEmail) {
-    return res.status(400).json({ message: "Email already has one account" });
+    return res.status(400).json({ message: "Email já se encontra cadastrado" });
   }
   next();
 };
 const verifyInputs = async (req, res, next) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password ) {
-    return res.status(400).json({ message: "Please fill all the fields" });
+    return res.status(400).json({ message: "Por favor preencha todo o formulário" });
   }
   if (username.length < 3) {
     return res
       .status(400)
-      .json({ message: "Username must be at least 3 characters" });
+      .json({ message: "Usuário precisa de ter 6 caracters" });
   }
   if (password.length < 6) {
     return res
       .status(400)
-      .json({ message: "Password must be at least 6 characters" });
+      .json({ message: "Password precisa de ter 6 caracters" });
   }
   const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   if (!regexEmail.test(email)) {
