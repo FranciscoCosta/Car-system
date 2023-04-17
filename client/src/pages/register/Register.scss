@@ -1,0 +1,126 @@
+.Register {
+  width: 100%;
+  min-height: 100vh;
+
+  .Register__container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      width: 960px;
+      padding: 100px 0px;
+      display: flex;
+      gap: 120px;
+
+      h1 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .left,
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+
+        label {
+          color: var(--primary-color);
+          font-size: 18px;
+        }
+
+        input,
+        textarea {
+          padding: 20px;
+          border: 1px solid rgb(216, 214, 214);
+        }
+
+        input:focus,
+        textarea:focus {
+          outline: 1px solid var(--secondary-color);
+          border: 1px solid var(--secondary-color);
+        }
+
+        button {
+          border: none;
+          padding: 20px;
+          color: white;
+          font-weight: 500;
+          font-size: 18px;
+          background-color: var(--secondary-color);
+          cursor: pointer;
+        }
+
+        .toggle {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+          }
+          
+          .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+
+          .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            border-radius: 24px;
+          }
+
+          .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            border-radius: 50%;
+          }
+
+          input:checked + .slider {
+            background-color: var(--secondary-color);
+          }
+
+          input:focus + .slider {
+            box-shadow: 0 0 1px var(--secondary-color);
+          }
+
+          input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+          }
+        }
+
+        .error {
+          color: red;
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
