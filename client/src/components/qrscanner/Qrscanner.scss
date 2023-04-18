@@ -1,0 +1,32 @@
+.Qrscanner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    gap: 1rem;
+
+    button{
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            font-weight: 500;
+            font-size: 1.5rem;
+            background-color: var(--primary-color);
+            cursor: pointer;
+            width: 140px;
+    }
+
+    select{
+        width: max-content;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+
+        option{
+            font-size: 1.5rem;
+        }
+    }
+}

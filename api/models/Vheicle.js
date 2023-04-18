@@ -21,6 +21,7 @@ const vheicleSchema = new Schema(
     plate: {
         type: String,
         required: true,
+        unique: true,
         minlength: 3,
     },
     userId: {

@@ -57,9 +57,11 @@ const fetchUser = async () => {
         ) : !currentUser.isMechanic? (
           <div className="Navbar__menu">
             <ul>
-              <h2>Home</h2>
+              <h2 
+              onClick={()=> {navigate("/client")}}
+              >Veiculos</h2>
               <h2>Pedidos</h2>
-              <h2>Veiculos</h2>
+              <h2>Loja</h2>
               <button
               onClick={handleLogout}
               >Logout</button>
@@ -68,8 +70,8 @@ const fetchUser = async () => {
         ) : (
           <div className="Navbar__menu">
             <ul>
-              <h2>Home</h2>
-              <h2>Ordem de serviço</h2>
+              <h2>Novo Serviço</h2>
+              <h2>Lista de serviço</h2>
               <h2>Peças</h2>
               <button 
               type="button"
