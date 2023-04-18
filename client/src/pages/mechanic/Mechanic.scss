@@ -51,6 +51,81 @@
                 color: black;
                 font-weight: 500;
             }       
+        
+            .Mechanic__showCar-info{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                
+                .Mechanic__info{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    width: 60%;
+                }
+                .Mechanic__newOrder{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto;
+                    width: 100%;
+
+                     form{
+                        width: 70%;
+                        display: flex;
+                        padding: 1rem;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        border: 1px solid rgba(0,0,0,0.1);
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            color: var(--primary-color);
+                            font-size: 18px;
+                          }
+
+                          textarea {
+                            padding: 5px;
+                            height: 200px;
+                            width: 540px;
+                            border: 1px solid rgb(216, 214, 214);
+                        }
+                      
+                          input {
+                            padding: 5px;
+                            width: 140px;
+                            border: 1px solid rgb(216, 214, 214);
+                        }
+            
+                        input:focus {
+                            outline: 1px solid var(--secondary-color);
+                            border: 1px solid var(--secondary-color);
+            
+                        }
+            
+                      
+                          button {
+                            border: none;
+                            padding: 10px 20px;
+                            color: white;
+                            font-weight: 500;
+                            font-size: 18px;
+                            background-color: var(--primary-color);
+                            cursor: pointer;
+                            position: absolute;
+                            bottom: 2rem;
+                            right: 4rem;
+                            
+                          }
+                     }
+                }
+            }
         }
+
     }
 }

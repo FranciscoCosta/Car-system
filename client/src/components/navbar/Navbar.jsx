@@ -6,16 +6,13 @@ import "./Navbar.scss";
 function Navbar() { 
 
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-
-useEffect(() => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
-  setCurrentUser(currentUser);
-  setIsLoading(false)
-  
-}, [isLoading])
+  useEffect(() => {
+    setIsLoading(false)
+    
+  }, [currentUser])
 
 const handleLogout = () => {
   localStorage.removeItem("currentUser");
