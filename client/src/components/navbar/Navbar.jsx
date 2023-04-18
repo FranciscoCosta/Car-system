@@ -22,10 +22,9 @@ useEffect(() => {
   setCurrentUser(currentUser);
   setIsLoading(false)
   
-}, [currentUser])
+}, [isLoading])
 
 const handleLogout = () => {
-  console.log("sai")
   localStorage.removeItem("currentUser");
   navigate("/");
 }
@@ -49,7 +48,7 @@ const handleLogout = () => {
               >Serviços</h2>
               <h2
               onClick={() => {navigate("/register")}}
-              >Registro</h2>
+              >Cadastrar</h2>
               <button
               onClick={() => {navigate("/login")}}
               >Login</button>
