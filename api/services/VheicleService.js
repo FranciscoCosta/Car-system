@@ -1,7 +1,6 @@
 import Vheicle from '../models/Vheicle.js';
 
 const registerVheicleService = async (vheicle) => {
-    console.log(vheicle,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     try{
         const newVheicle = new Vheicle(vheicle);
         await newVheicle.save();
@@ -13,7 +12,6 @@ const registerVheicleService = async (vheicle) => {
 
 
 const getVheiclesService = async (id) => {
-    console.log(id,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     const vheicles = await Vheicle.find( { userId: id });
     return vheicles;
     }

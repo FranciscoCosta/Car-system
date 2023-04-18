@@ -9,10 +9,10 @@
 }
 
 :root {
-  --primary-color: #020381;
-  --secondary-color: #8ed1fc;
-  --text-color: #6b7379;
-  --background-color-main: #f7f7f7;
+  --primary-color: #ffbf00;
+  --secondary-color: #101220;
+  --text-color: #eef1ef;
+  --background-color-main: #6f9ceb;
 }
 
 *::-webkit-scrollbar {

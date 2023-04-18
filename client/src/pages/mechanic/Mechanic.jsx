@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import "./Mechanic.scss";
-import { Qrscanner } from "../../components";
+import AddOrderAPI from "../../service/AddOrder";
+import Qrscanner from "../../components/qrscanner/Qrscanner";
+import getAllOrdersVheicle from "../../service/getAllOrderVheicle";
+import { useNavigate } from "react-router-dom";
 
 function Mechanic() {
+  const navigate = useNavigate();
   const [vehicles, setVehicles] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
+  const [orders, setOrders] = useState([]);
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   function handleInfo(data) {
     const vehiclesArray = data.split(",");
     const newVehicle = {
@@ -18,19 +24,34 @@ function Mechanic() {
       plate: vehiclesArray[4],
       userId: vehiclesArray[5],
     };
+    fetchOrders(newVehicle.vehicleId);
     setVehicles(newVehicle);
   }
 
-  const handleOrder = (e) => {
-    e.preventDefault();
-    const vehicleId = e.target.id;
-    console.log(vehicleId);
+  const fetchOrders = async (id) => {
+    const ordersV = await getAllOrdersVheicle(id);
+    setOrders(ordersV);
+    console.log(ordersV);
   };
 
-  const handleChange = (e) => {
-    setAddOrder((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
+  const handleOrder = async (e) => {
+    e.preventDefault();
+    const newOrder = {
+      price: price,
+      description: description,
+      deliveryDate: deliveryDate,
+      status: "Pendente",
+      clientId: vehicles.userId,
+      vehicleId: vehicles.vehicleId,
+      mechanicId: currentUser._id,
+    };
+    const response = await AddOrderAPI(newOrder);
+    if (response.status === 200) {
+      navigate("/mechanic/orders");
+    }
+    if (response.status === 400) {
+      alert("Preencha todos os campos");
+    }
   };
 
   return (
@@ -61,14 +82,14 @@ function Mechanic() {
               <div className="Mechanic__newOrder">
                 <form action="" onSubmit={handleOrder}>
                   <h2>Adicionar orçamento:</h2>
-                <label htmlFor="">
+                  <label htmlFor="">
                     Descrição do serviço
                     <textarea
                       rezize="none"
                       name="model"
                       type="text"
                       placeholder="Descrição do serviço:"
-                      onChange={() => setDescription(e.target.value)}
+                      onChange={(e) => setDescription(e.target.value)}
                     />
                   </label>
                   <label htmlFor="">
@@ -77,7 +98,7 @@ function Mechanic() {
                       name="price"
                       type="number"
                       placeholder="Preço em Real:"
-                      onChange={() => setPrice(e.target.value)}
+                      onChange={(e) => setPrice(e.target.value)}
                     />
                   </label>
                   <label htmlFor="">
@@ -85,7 +106,7 @@ function Mechanic() {
                     <input
                       name="deliveryDate"
                       type="date"
-                      onChange={() => setDeliveryDate(e.target.value)}
+                      onChange={(e) => setDeliveryDate(e.target.value)}
                     />
                   </label>
 
@@ -97,6 +118,23 @@ function Mechanic() {
             <p>Nenhum veiculo encontrado</p>
           )}
         </div>
+        {orders.length !== 0 && (
+          <div className="Vheicle__orders-container">
+            <h1>Pedidos do Veiculo</h1>
+            <div className="Order__container">
+              {orders.map((order) => (
+                <div className="Order__card" key={order._id}>
+                  <p>Descrição: <h4>{order.description}</h4></p>
+                  <p>Preço: <h4>$R{order.price}</h4></p>
+                  <p>Data de entrega: <h4>{order.deliveryDate}</h4></p>
+                  <span
+                  style={ order.status === "Pendente" ? {backgroundColor: "crimson"} : order.status === "Em andamento" ? {backgroundColor: "orange"} : {backgroundColor: "green"}}
+                  >{order.status}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

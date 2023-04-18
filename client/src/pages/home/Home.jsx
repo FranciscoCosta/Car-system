@@ -1,24 +1,30 @@
 import React from "react";
 import "./Home.scss";
-import {hero} from "../../assets/index";
+import {hero, Logo} from "../../assets/index";
 import { BsFillFileTextFill } from 'react-icons/bs';
 import {MdCarRepair} from 'react-icons/md';
 import { BiTimer } from 'react-icons/bi';
+
 function Home() {
   return (
     <div className="Home">
       <div className="Home__container">
         <div className="Home__container-hero">
         <div className="container-info">
+          <img src={Logo} alt="logo" />
           <p>
-            Experimente o Ultracar e facilite a manutenção do seu automóvel!
-            Registre seu veículo e agende reparos com facilidade, tudo em um
-            único aplicativo. Simplifique sua vida e mantenha seu carro em dia,
-            utilize agora o Ultracar!
+            Experimente o <span>AutoMatch</span> e facilite a manutenção do seu automóvel!
+            <br/>
+            Simplifique sua vida e mantenha seu carro em dia,
+            utilize agora o <span>AutoMatch</span>!
           </p>
-          <button>Registrar</button>
+          <button
+            onClick={() => { navigate("/register")}}
+          >REGISTRAR</button>
           </div>
+          <div className="Hero__img">
           <img src={hero} alt="hero-png" />
+          </div>
         </div>
         <div className="Home__container-service">
           <h2>Serviços</h2>

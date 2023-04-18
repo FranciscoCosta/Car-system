@@ -1,29 +1,45 @@
 .Home{
     width: 100%;
     min-height: 100vh;
-
+    
     .Home__container{
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
-        padding: 5rem 0;
+        padding: 10rem 0;
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
         
         .Home__container-hero{
+            background-color: whitesmoke;
             display: flex;
+            height: 90vh;
             
             .container-info{
                 flex: 2;
-                padding: 2rem;
+                padding-left: 10rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 
+                img{
+                    align-self: flex-start;
+                    width: 20rem;
+                }
+                
                 p{
-                    font-size: 1.8rem;
-                    font-weight: 500;
+                    width: 90%;
+                    font-size: 2.3rem;
+                    font-weight: 600;
                     color: var(--color-text);
-                    line-height: 3.2rem;
+                    line-height: 4.8rem;
+
+                    span{
+                        font-weight: 600;
+                        font-size: 2.4rem;
+                        color: var(--primary-color);
+                    }
                 }
                 button{
                     margin-top: 1rem;
@@ -31,23 +47,41 @@
                     border: none;
                     border-radius: 5px;
                     background-color: var(--primary-color);
-                    color: white;
-                    font-size: 1.2rem;
-                    font-weight: 500;
+                    color: black;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    letter-spacing: 5px;
+                    text-transform: capitalize;
                     cursor: pointer;
-                    width: 120px;
+                    width: 200px;
+                    min-height: 60px;
+
+                    &:hover{
+                        color: white;
+                        transition: 0.5s all ease-in-out;
+                        background-color: var(--secondary-color);
+                    }
                 }
             }
-            img{
-                flex: 3;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+
+            .Hero__img{
+                flex: 2;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                img{
+                    width: 70%;
+                    margin-bottom: 2rem;
+                    object-fit: cover;
+                }
+
             }
+
         }
         .Home__container-service{
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            height: 90vh;
+            width: 100%;
+            background-color: var(--secondary-color);
             border-top: 1px solid var(--secondary-color);
             border-bottom: 1px solid var(--secondary-color);
             display: flex;
@@ -58,7 +92,7 @@
             h2{
                 font-size: 3.5rem;
                 font-weight: 600;
-                color: var(--color-text);
+                color: white;
             }
 
             .container-service{
@@ -84,15 +118,19 @@
                     cursor: pointer;
                     
 
+                    svg{
+                        color: white;
+                    }
+
                     h3{
                         font-size: 2.5rem;
                         font-weight: 500;
-                        color: var(--color-text);
-
+                        color: white;
                     }
                     p{
                         text-align: center;
                         font-size: 1.2rem;
+                        color: white;
                     }
 
 
@@ -108,5 +146,5 @@
     transition: 0.5s all ease-in-out;
     transform: translateY(-15px);
     background-color: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
 }

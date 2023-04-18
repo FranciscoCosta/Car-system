@@ -2,11 +2,32 @@ import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../../assets/index";
 import "./Navbar.scss";
+import { FaHome } from 'react-icons/fa';
+import {RiLoginBoxFill, RiLogoutBoxFill } from 'react-icons/ri';
+import { AiFillCar } from 'react-icons/ai';
+import { MdOutlineFormatAlignJustify } from 'react-icons/md';
+
+
+
+
+
+
 
 function Navbar() { 
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [navbarActive, setnavbarActive] = useState(false);
+  const isScrolled = () => {
+    window.scrollY > 0 ? setnavbarActive(true) : setnavbarActive(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", isScrolled);
+    return () => {
+      window.addEventListener("scroll", isScrolled);
+    };
+  }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
   useEffect(() => {
@@ -27,7 +48,7 @@ const fetchUser = async () => {
 
 
   return (
-    <div className="Navbar">
+    <div className={!navbarActive ? "Navbar" : "Navbar active"}>
       { !isLoading && <div className="Navbar__container">
         <div className="Navbar__logo">
           <img src={Logo} alt="logo-ultracar" />
@@ -77,7 +98,53 @@ const fetchUser = async () => {
           </div>
         )}
       </div>}
-      <div className="Navbar__container-mobile"></div>
+      <div className="Navbar__container-mobile">
+      {!currentUser.username ? (
+          <div className="Navbar__menu">
+            <ul>
+              <FaHome
+              id="Home"
+              onClick={() => {navigate("/")}}
+              />
+              <AiFillCar
+              id="Serviços"
+              onClick={() => {navigate("/")}}
+              />
+              <MdOutlineFormatAlignJustify
+              onClick={() => {navigate("/register")}}
+              />
+              <RiLoginBoxFill
+              onClick={() => {navigate("/login")}}
+              />
+            </ul>
+          </div>
+        ) : !currentUser.isMechanic? (
+          <div className="Navbar__menu">
+            <ul>
+              <h2 
+              onClick={()=> {navigate("/client")}}
+              >Veiculos</h2>
+              <h2>Pedidos</h2>
+              <h2>Loja</h2>
+              <button
+              onClick={handleLogout}
+              >Logout</button>
+            </ul>
+          </div>
+        ) : (
+          <div className="Navbar__menu">
+            <ul>
+              <h2>Novo Serviço</h2>
+              <h2>Lista de serviço</h2>
+              <h2>Peças</h2>
+              <button 
+              type="button"
+              onClick={handleLogout}>Logout</button>
+            </ul>
+          </div>
+        )}
+
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import connectDB from "./mongo/connect.js";
 import bodyParser from "body-parser";
 import AuthRoute from "./routes/AuthRoute.js";
 import Vheicleroute from "./routes/VheicleRoute.js";
-
+import OrderRoute from "./routes/OrderRoute.js";
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(AuthRoute);
 app.use(Vheicleroute);
+app.use(OrderRoute);
 
 app.get("/", (req, res) => {
   res.send("Ultracar");

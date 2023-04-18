@@ -1,18 +1,16 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const ordersSchema = new Schema(
+const orderSchema = new Schema(
   {
     mechanicId: {
         type: String,
         required: true,
-        unique: true,
         minlength: 3,
     },
     vehicleId: {
         type: String,
         required: true,
-        unique: true,
         minlength: 3,
     },
     status: {
@@ -20,9 +18,9 @@ const ordersSchema = new Schema(
         required: true,
         minlength: 3,
     },
-    descritpion: {
+    description: {
         type: String,
-        required: true,
+        required: true, 
         minlength: 3,
     },
     deliveryDate: {
@@ -33,12 +31,10 @@ const ordersSchema = new Schema(
     price: {
         type: String,
         required: true,
-        minlength: 3,
     },
     clientId: {
         type: String,
         required: true,
-        unique: true,
         minlength: 3,
     },
     },
@@ -47,4 +43,4 @@ const ordersSchema = new Schema(
   }
 );
 
-export default mongoose.model("Order", ordersSchema);
+export default mongoose.model("Order", orderSchema);
