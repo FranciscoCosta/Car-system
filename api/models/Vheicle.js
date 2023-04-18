@@ -26,7 +26,6 @@ const vheicleSchema = new Schema(
     userId: {
         type: String,
         required: true,
-        unique: true,
         minlength: 3,
     },
     },

@@ -12,6 +12,11 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const fetchUser = async () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+    setCurrentUser(currentUser);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

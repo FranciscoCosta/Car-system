@@ -3,12 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Logo } from "../../assets/index";
 import "./Navbar.scss";
 
-// const currentUser = {
-//   name: 'John Doe',
-//   email: 'jhon@gmail.com'ss,
-//   role: 'client'
-// }
-
 function Navbar() { 
 
   const navigate = useNavigate();
@@ -18,7 +12,6 @@ function Navbar() {
 
 useEffect(() => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
-  console.log(currentUser.isMechanic)
   setCurrentUser(currentUser);
   setIsLoading(false)
   
@@ -26,8 +19,15 @@ useEffect(() => {
 
 const handleLogout = () => {
   localStorage.removeItem("currentUser");
+  fetchUser();
   navigate("/");
 }
+
+const fetchUser = async () => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+  setCurrentUser(currentUser);
+}
+
 
   return (
     <div className="Navbar">

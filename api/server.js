@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./mongo/connect.js";
 import bodyParser from "body-parser";
 import AuthRoute from "./routes/AuthRoute.js";
+import Vheicleroute from "./routes/VheicleRoute.js";
 
 
 const app = express();
@@ -13,8 +14,8 @@ dotenv.config();
 app.use(cors({ origin: '*' }));
 app.use(cors());
 app.use(express.json());
-app.use(AuthRoute)
-
+app.use(AuthRoute);
+app.use(Vheicleroute);
 
 app.get("/", (req, res) => {
   res.send("Ultracar");

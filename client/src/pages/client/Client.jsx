@@ -1,16 +1,38 @@
 import React,{useState,useEffect} from 'react'
 import './Client.scss'
+import { getVehiclesAPI } from '../../service/GetVheicles'
+import { RegisterVheicle } from '../../service/RegisterVheicle'
 
 
 function Client() {
 
+
+
+
   const [vehicles, setVehicles] = useState([])
+  const [user, setUser] = useState({})
   const [vehicle, setVehicle] = useState({
     brand: '',
     model: '',
     year: '',
     plate: ''
   })
+
+  useEffect(() => {
+   setUser(JSON.parse(localStorage.getItem('currentUser')));
+    fetchVehicles();
+  }, [])
+    
+
+  const fetchVehicles = async () => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    try {
+      const vehicles = await getVehiclesAPI(user._id);
+      setVehicles(vehicles);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const handleChange = (e) => {
     setVehicle((prev) => {
@@ -20,7 +42,13 @@ function Client() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(vehicle)
+    try{
+      const vheicleUser = { ...vehicle, userId: user._id };
+      const newVehicle = await RegisterVheicle(vheicleUser);
+      fetchVehicles();
+    }catch(err){
+      console.log(err);
+    }
   }
   return (
     <div className='Client'>
