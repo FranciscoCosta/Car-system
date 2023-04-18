@@ -2,10 +2,14 @@ import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../../assets/index";
 import "./Navbar.scss";
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaStoreAlt } from 'react-icons/fa';
 import {RiLoginBoxFill, RiLogoutBoxFill } from 'react-icons/ri';
-import { AiFillCar } from 'react-icons/ai';
+import { AiFillCar,AiOutlineOrderedList } from 'react-icons/ai';
 import { MdOutlineFormatAlignJustify } from 'react-icons/md';
+import { BsFillBookmarkPlusFill } from 'react-icons/bs';
+import { GiCarWheel } from 'react-icons/gi';
+
+
 
 
 
@@ -121,25 +125,25 @@ const fetchUser = async () => {
         ) : !currentUser.isMechanic? (
           <div className="Navbar__menu">
             <ul>
-              <h2 
+              <AiFillCar 
               onClick={()=> {navigate("/client")}}
-              >Veiculos</h2>
-              <h2>Pedidos</h2>
-              <h2>Loja</h2>
-              <button
-              onClick={handleLogout}
-              >Logout</button>
+              />
+              <MdOutlineFormatAlignJustify/>
+              <FaStoreAlt/>
+              <RiLogoutBoxFill
+              type="button"
+              onClick={handleLogout}/>
             </ul>
           </div>
         ) : (
           <div className="Navbar__menu">
             <ul>
-              <h2>Novo Serviço</h2>
-              <h2>Lista de serviço</h2>
-              <h2>Peças</h2>
-              <button 
+              <BsFillBookmarkPlusFill/>
+              <AiOutlineOrderedList/>
+              <GiCarWheel/>
+              <RiLogoutBoxFill
               type="button"
-              onClick={handleLogout}>Logout</button>
+              onClick={handleLogout}/>
             </ul>
           </div>
         )}
