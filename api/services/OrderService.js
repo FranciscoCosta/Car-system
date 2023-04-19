@@ -19,5 +19,24 @@ const getOrdersVheicleService = async (id) => {
     }
 }
 
+const getOrdersClientVheicleService = async (id) => {
+    try{
+        const orders = await Order.find({clientId: id});
+        return orders;
+    }catch(error){
+        console.log(error);
+    }
+}
 
-export { registerOrderService, getOrdersVheicleService };
+const getOrdersMechanicVheicleService = async (id) => {
+    try{
+        const orders = await Order.find({mechanicId: id});
+        return orders;
+    }catch(error){
+        console.log(error);
+    }
+}
+
+
+
+export { registerOrderService, getOrdersVheicleService, getOrdersClientVheicleService, getOrdersMechanicVheicleService};
