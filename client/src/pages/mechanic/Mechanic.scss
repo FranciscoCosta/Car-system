@@ -1,363 +1,349 @@
-.Mechanic{
-    width: 100%;
-    min-height: 100vh;
-    background-color: whitesmoke;
-    overflow-x: hidden;
-    
-    .Mechanic__container{
-        width: 90%;
-        gap: 2rem;
-        margin: 2rem auto;
-        padding-top: 10rem;
+.Mechanic {
+  width: 100%;
+  min-height: 100vh;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+
+  .Mechanic__container {
+    width: 90%;
+    gap: 2rem;
+    margin: 2rem auto;
+    padding-top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .Mechanic__container-addOrder {
+      padding: 2rem;
+      border: 1px rgba(0, 0, 0, 0.1) solid;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      width: 50%;
+
+      h1 {
+        text-align: center;
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+      }
+    }
+
+    .Mechanic__showCar {
+      padding: 2rem;
+      border: 1px rgba(0, 0, 0, 0.1) solid;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      width: 100%;
+
+      h1 {
+        text-align: center;
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+      }
+
+      h4 {
+        color: var(--primary-color);
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .Mechanic__showCar-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--secondary-color);
+        height: 100%;
+
+        .Mechanic__info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          width: 60%;
+          height: 100%;
+
+          .Mechanic__info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            height: 100%;
+
+            h3 {
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 650;
+            }
+
+            p {
+              text-align: start;
+              color: var(--primary-color);
+              width: 15rem;
+              font-size: 1.4rem;
+              font-weight: 600;
+            }
+
+            span {
+              color: black;
+              font-weight: 500;
+            }
+          }
+        }
+        .Mechanic__newOrder {
+          flex-direction: column;
+          align-items: center;
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+
+          h3 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 650;
+            margin-top: 1rem;
+          }
+
+          form {
+            display: flex;
+            padding: 2rem;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            position: relative;
+            gap: 1rem;
+
+            label {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              color: var(--secondary-color);
+              font-size: 1.2rem;
+              font-weight: 600;
+              width: 100%;
+              gap: 0.1rem;
+            }
+
+            textarea {
+              padding: 5px;
+              height: 140px;
+              width: 600px;
+              border: 1px solid rgb(216, 214, 214);
+            }
+
+            textarea:focus {
+              outline: 1px solid var(--primary-color);
+              border: 1px solid var(--primary-color);
+            }
+
+            input {
+              padding: 5px 10px;
+              width: 150px;
+              border: 1px solid rgb(216, 214, 214);
+            }
+
+            input:focus {
+              outline: 1px solid var(--primary-color);
+              border: 1px solid var(--primary-color);
+            }
+
+            button {
+              border: none;
+              padding: 10px 20px;
+              color: var(--secondary-color);
+              font-weight: 500;
+              font-size: 18px;
+              background-color: var(--primary-color);
+              cursor: pointer;
+              position: absolute;
+              bottom: 1rem;
+              right: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .Vheicle__orders-container {
+      padding: 2rem;
+      border: 1px rgba(0, 0, 0, 0.1) solid;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h1 {
+        text-align: center;
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+      }
+
+      .Order__container {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: max-content;
+        padding: 2rem;
+        gap: 5rem;
+      }
+      .Order__card {
+        padding: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
         flex-direction: column;
-
-        .Mechanic__container-addOrder{
-            padding: 2rem;
-            border: 1px rgba(0,0,0,0.1) solid;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            position: relative;
-            width: 50%;
-
-            h1{
-                text-align: center;
-                color: var(--secondary-color);
-                margin-bottom: 2rem;
-                font-size: 2.5rem;
-            }
+        justify-content: center;
+        width: 30rem;
+        background-color: var(--secondary-color);
+        border-radius: 20px;
+        h3 {
+          width: 100%;
+          display: flex;
+          gap: 0.5rem;
+          flex-direction: row;
+          align-items: center;
+          justify-content: start;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: var(--primary-color);
+          p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: whitesmoke;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
         }
 
-        .Mechanic__showCar{
-            padding: 2rem;
-            border: 1px rgba(0,0,0,0.1) solid;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            position: relative;
-            width: 100%;
-
-            h1{
-                text-align: center;
-                color: var(--secondary-color);
-                margin-bottom: 2rem;
-                font-size: 2.5rem;
-            }
-
-            h4{
-                color: var(--primary-color);
-                text-align: center;
-                font-size: 1.5rem;
-            }
-        
-            .Mechanic__showCar-info{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid var(--secondary-color);
-                height: 100%;
-                
-                .Mechanic__info{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 1rem;
-                    width: 60%;
-                    height: 100%;
-
-                    
-                    .Mechanic__info-container{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 1rem;
-                        width: 100%;
-                        height: 100%;
-
-
-                        
-                        h3{
-                            text-align: center;
-                            font-size: 2rem;
-                            font-weight: 650;
-                        }
-                        
-                        p{
-                            text-align: start;
-                            color: var(--primary-color);
-                            width: 15rem;
-                            font-size: 1.4rem;
-                            font-weight: 600;
-                        }
-                        
-                        span{
-                            color: black;
-                            font-weight: 500;
-                        }   
-                    }
-                }
-                .Mechanic__newOrder{
-                    flex-direction: column;
-                    align-items: center; 
-                    display: flex;
-                    justify-content: space-around;
-                    width: 100%;
-                    
-                    h3{
-                        text-align: center;
-                        font-size: 2rem;
-                        font-weight: 650;
-                        margin-top: 1rem;
-                    }
-                    
-                    form{
-                        display: flex;
-                        padding: 2rem;
-                        align-items: center;
-                        justify-content: center;
-                        flex-direction: row;
-                        position: relative;
-                        gap: 1rem;
-                        
-                        
-                        
-                        label {
-                            width: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            color: var(--secondary-color);
-                            font-size: 1.2rem;
-                            font-weight: 600;
-                            width: 100%;
-                            gap: 0.10rem;
-                        }
-                        
-                        textarea {
-                            padding: 5px;
-                            height: 140px;
-                            width: 600px;
-                            border: 1px solid rgb(216, 214, 214);
-                        }
-
-                        textarea:focus {
-                            outline: 1px solid var(--primary-color);
-                            border: 1px solid var(--primary-color);
-                        }
-                        
-                        input {
-                            padding: 5px 10px;
-                            width: 150px;
-                            border: 1px solid rgb(216, 214, 214);
-                        }
-            
-                        input:focus {
-                            outline: 1px solid var(--primary-color);
-                            border: 1px solid var(--primary-color);
-            
-                        }
-            
-                      
-                          button {
-                            border: none;
-                            padding: 10px 20px;
-                            color: var(--secondary-color);
-                            font-weight: 500;
-                            font-size: 18px;
-                            background-color: var(--primary-color);
-                            cursor: pointer;
-                            position: absolute;
-                            bottom: 1rem;
-                            right: 1rem;
-                            
-                          }
-                     }
-                }
-
-
-            }
+        span {
+          color: whitesmoke;
+          padding: 5px 25px;
+          border-radius: 25px;
+          font-size: 1.5rem;
+          align-self: center;
+          font-weight: 600;
         }
-
-        .Vheicle__orders-container{
-            padding: 2rem;
-            border: 1px rgba(0,0,0,0.1) solid;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-            h1{
-                text-align: center;
-                color: var(--secondary-color);
-                font-size: 2.5rem;
-            }
-
-            .Order__container{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-                width: 100%;
-                height: max-content;
-                padding: 2rem;
-                gap: 5rem;
-            }
-            .Order__card{
-                padding: 2rem;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
-                width: 30rem;
-                background-color: var(--secondary-color);
-                border-radius: 20px;
-                h3 {
-                    width: 100%;
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: start;
-                    font-size: 1.3rem;
-                    font-weight: 600;
-                    color: var(--primary-color);
-                    p {
-                      font-size: 1.2rem;
-                      font-weight: 600;
-                      color: whitesmoke;
-                      text-overflow: ellipsis;
-                      overflow: hidden;
-                      white-space: nowrap;
-                    }
-                  }
-        
-                  span {
-                    color: whitesmoke;
-                    padding: 5px 25px;
-                    border-radius: 25px;
-                    font-size: 1.5rem;
-                    align-self: center;
-                    font-weight: 600;
-                  }
-                  svg {
-                    margin-right: 1rem;
-                    font-size: 2rem;
-                    color: var(--primary-color);
-                    align-self: center;
-                    margin-top: 1rem;
-                    cursor: pointer;
-                  }
-            }
+        svg {
+          margin-right: 1rem;
+          font-size: 2rem;
+          color: var(--primary-color);
+          align-self: center;
+          margin-top: 1rem;
+          cursor: pointer;
         }
-
+      }
     }
+  }
 
-    @media screen and (max-width: 480px) {
-        padding-top: 0rem;
-        position: relative;
-    
-        .Mechanic__container{
+  @media screen and (max-width: 480px) {
+    padding-top: 0rem;
+    position: relative;
+
+    .Mechanic__container {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      .Mechanic__container-addOrder {
+        width: 100%;
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .Mechanic__showCar {
+        h1 {
+          font-size: 2rem;
+        }
+        h4 {
+          font-size: 1.5rem;
+        }
+
+        .Mechanic__showCar-info {
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          .Mechanic__info {
+            width: 100%;
+            .Mechanic__info-container {
+              h3 {
+                margin-top: 1rem;
+                font-size: 1.5rem;
+              }
+              p {
+                font-size: 1.2rem;
+              }
+            }
+          }
+          .Mechanic__newOrder {
+            flex-direction: column;
             padding: 0;
             margin: 0;
-            width: 100%;
-            .Mechanic__container-addOrder{
+            h3 {
+              font-size: 1.5rem;
+            }
+            form {
+              flex-direction: column;
+
+              textarea {
                 width: 100%;
-                
-                h1{
-                    font-size: 2rem;
-                }
+                height: 200px;
+              }
+
+              button {
+                position: relative;
+                bottom: 0;
+                right: 0;
+              }
             }
-                .Mechanic__showCar{
-                    h1{
-                        font-size: 2rem;
-                    }
-                    h4{
-                        font-size: 1.5rem;
-                    }
-
-                    .Mechanic__showCar-info{
-                        flex-direction: column;
-                        padding: 0;
-                        margin: 0;
-                        align-items: center;
-                        justify-content: center;
-                        border: none;
-                        .Mechanic__info{
-                            width: 100%;
-                            .Mechanic__info-container{
-                            
-                                h3{
-                                    margin-top: 1rem;
-                                    font-size: 1.5rem;
-                                }
-                                p{
-                                    font-size: 1.2rem;
-                                }
-                            }
-
-                        }
-                        .Mechanic__newOrder{
-                            flex-direction: column;
-                            padding: 0;
-                            margin: 0;
-                            h3{
-                                font-size: 1.5rem;
-                            }
-                            form{
-                                flex-direction: column;
-
-                                textarea {
-                                    width: 100%;
-                                    height: 200px
-                                }
-
-                                button{
-                                    position: relative;
-                                    bottom: 0;
-                                    right: 0;
-                                }
-                            }
-                        }
-                    }
-                }
-                
-
-            .Vheicle__orders-container{
-                padding: 2rem 0rem;
-                margin: 0;
-                h1{
-                    font-size: 2rem;
-                }
-                .Order__container{
-                    gap: 0.5rem;
-                    width: 100%;
-                    margin: 0;
-                    padding: 1rem;
-                }
-                .Order__card{
-                    margin: 0 auto;
-                    padding: 10px;
-                    width: 100%;
-                    height: 100%;
-                    p{
-                        font-size: 0.8rem;
-
-                        h4{
-                            font-size: 0.8rem;
-                        }
-                    }
-                    span{
-                        font-size: 0.8rem;
-                    }
-                }
-            }
+          }
         }
+      }
+
+      .Vheicle__orders-container {
+        padding: 2rem 0rem;
+        margin: 0;
+        h1 {
+          font-size: 2rem;
+        }
+        .Order__container {
+          gap: 0.5rem;
+          width: 100%;
+          margin: 0;
+          padding: 1rem;
+        }
+        .Order__card {
+          margin: 0 auto;
+          padding: 10px;
+          width: 100%;
+          height: 100%;
+          p {
+            font-size: 0.8rem;
+
+            h4 {
+              font-size: 0.8rem;
+            }
+          }
+          span {
+            font-size: 0.8rem;
+          }
+        }
+      }
     }
+  }
 }

@@ -82,7 +82,9 @@ const fetchUser = async () => {
               <h2 
               onClick={()=> {navigate("/client")}}
               >Veiculos</h2>
-              <h2>Pedidos</h2>
+              <h2
+              onClick={()=> {navigate("/client/orders")}}
+              >Pedidos</h2>
               <h2>Loja</h2>
               <button
               onClick={handleLogout}
@@ -92,7 +94,9 @@ const fetchUser = async () => {
         ) : (
           <div className="Navbar__menu">
             <ul>
-              <h2>Novo Serviço</h2>
+              <h2
+              onClick={()=> {navigate("/mechanic")}}
+              >Novo Serviço</h2>
               <h2
               onClick={()=> navigate("/mechanic/orders")}
               >Lista de serviços</h2>
@@ -130,7 +134,9 @@ const fetchUser = async () => {
               <AiFillCar 
               onClick={()=> {navigate("/client")}}
               />
-              <MdOutlineFormatAlignJustify/>
+              <MdOutlineFormatAlignJustify
+              onClick={()=> {navigate("/client/orders")}}
+              />
               <FaStoreAlt/>
               <RiLogoutBoxFill
               type="button"
