@@ -1,34 +1,36 @@
 .Mechanic{
     width: 100%;
     min-height: 100vh;
-
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    
     .Mechanic__container{
         width: 90%;
-        margin: 0 auto;
-        padding: 5rem 0;
+        gap: 2rem;
+        margin: 2rem auto;
+        padding-top: 10rem;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 4rem;
+        flex-direction: column;
 
         .Mechanic__container-addOrder{
-            padding: 5rem 2rem 8rem 2rem;
+            padding: 2rem;
             border: 1px rgba(0,0,0,0.1) solid;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
             position: relative;
-            width: 100%;
+            width: 50%;
 
             h1{
                 text-align: center;
-                color: var(--primary-color);
+                color: var(--secondary-color);
                 margin-bottom: 2rem;
                 font-size: 2.5rem;
             }
         }
 
         .Mechanic__showCar{
-            padding: 5rem 2rem 8rem 2rem;
+            padding: 2rem;
             border: 1px rgba(0,0,0,0.1) solid;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
             position: relative;
@@ -36,27 +38,24 @@
 
             h1{
                 text-align: center;
-                color: var(--primary-color);
+                color: var(--secondary-color);
                 margin-bottom: 2rem;
                 font-size: 2.5rem;
             }
 
-            p{
-                text-align: center;
+            h4{
                 color: var(--primary-color);
-                font-size: 1.8rem;
+                text-align: center;
+                font-size: 1.5rem;
             }
-
-            span{
-                color: black;
-                font-weight: 500;
-            }       
         
             .Mechanic__showCar-info{
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
+                border: 1px solid var(--secondary-color);
+                height: 100%;
                 
                 .Mechanic__info{
                     display: flex;
@@ -65,46 +64,98 @@
                     justify-content: center;
                     gap: 1rem;
                     width: 60%;
-                }
-                .Mechanic__newOrder{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 auto;
-                    width: 100%;
+                    height: 100%;
 
-                     form{
-                        width: 70%;
+                    
+                    .Mechanic__info-container{
                         display: flex;
-                        padding: 1rem;
+                        flex-direction: column;
                         align-items: center;
                         justify-content: center;
-                        flex-direction: column;
-                        border: 1px solid rgba(0,0,0,0.1);
+                        gap: 1rem;
+                        width: 100%;
+                        height: 100%;
+
+
+                        
+                        h3{
+                            text-align: center;
+                            font-size: 2rem;
+                            font-weight: 650;
+                        }
+                        
+                        p{
+                            text-align: start;
+                            color: var(--primary-color);
+                            width: 15rem;
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                        }
+                        
+                        span{
+                            color: black;
+                            font-weight: 500;
+                        }   
+                    }
+                }
+                .Mechanic__newOrder{
+                    flex-direction: column;
+                    align-items: center; 
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+                    
+                    h3{
+                        text-align: center;
+                        font-size: 2rem;
+                        font-weight: 650;
+                        margin-top: 1rem;
+                    }
+                    
+                    form{
+                        display: flex;
+                        padding: 2rem;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: row;
+                        position: relative;
+                        gap: 1rem;
+                        
+                        
+                        
                         label {
+                            width: 100%;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
-                            color: var(--primary-color);
-                            font-size: 18px;
-                          }
-
-                          textarea {
+                            color: var(--secondary-color);
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            width: 100%;
+                            gap: 0.10rem;
+                        }
+                        
+                        textarea {
                             padding: 5px;
-                            height: 200px;
-                            width: 540px;
+                            height: 140px;
+                            width: 600px;
                             border: 1px solid rgb(216, 214, 214);
                         }
-                      
-                          input {
-                            padding: 5px;
-                            width: 140px;
+
+                        textarea:focus {
+                            outline: 1px solid var(--primary-color);
+                            border: 1px solid var(--primary-color);
+                        }
+                        
+                        input {
+                            padding: 5px 10px;
+                            width: 150px;
                             border: 1px solid rgb(216, 214, 214);
                         }
             
                         input:focus {
-                            outline: 1px solid var(--secondary-color);
-                            border: 1px solid var(--secondary-color);
+                            outline: 1px solid var(--primary-color);
+                            border: 1px solid var(--primary-color);
             
                         }
             
@@ -112,14 +163,14 @@
                           button {
                             border: none;
                             padding: 10px 20px;
-                            color: white;
+                            color: var(--secondary-color);
                             font-weight: 500;
                             font-size: 18px;
                             background-color: var(--primary-color);
                             cursor: pointer;
                             position: absolute;
-                            bottom: 2rem;
-                            right: 4rem;
+                            bottom: 1rem;
+                            right: 1rem;
                             
                           }
                      }
@@ -130,7 +181,7 @@
         }
 
         .Vheicle__orders-container{
-            padding: 5rem 2rem 8rem 2rem;
+            padding: 2rem;
             border: 1px rgba(0,0,0,0.1) solid;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
             position: relative;
@@ -142,8 +193,7 @@
 
             h1{
                 text-align: center;
-                color: var(--primary-color);
-                margin-bottom: 2rem;
+                color: var(--secondary-color);
                 font-size: 2.5rem;
             }
 
@@ -163,21 +213,27 @@
                 flex-direction: column;
                 justify-content: center;
                 border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 15px;
                 box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-                width: 30rem;
+                width: 35rem;
                 padding: 1.5rem 0.5rem 1rem 2rem;
-                min-height: 10rem;
-
+                height: 12rem;
+                background-color: var(--secondary-color);
+                
                 p{
-                    color: black;
+                    color: var(--primary-color);    
                     font-size: 1.5rem;
                     font-weight: 600;
                     display: flex;
                     flex-direction: row;
                     gap: 0.5rem;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
 
                     h4{
-                        color: var(--primary-color);
+                        color: white;
                         font-size: 1.5rem;
                         font-weight: 600;
                     }
@@ -188,12 +244,114 @@
                     color: white;
                     font-size: 1.2rem;
                     font-weight: 500;
-                    padding: 0.10rem 1.2rem;
+                    padding: 0.20rem 1.4rem;
                     border-radius: 20px;
                     margin-top: 1rem;
                 }
             }
         }
 
+    }
+
+    @media screen and (max-width: 480px) {
+        padding-top: 0rem;
+        position: relative;
+    
+        .Mechanic__container{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            .Mechanic__container-addOrder{
+                width: 100%;
+                
+                h1{
+                    font-size: 2rem;
+                }
+            }
+                .Mechanic__showCar{
+                    h1{
+                        font-size: 2rem;
+                    }
+                    h4{
+                        font-size: 1.5rem;
+                    }
+
+                    .Mechanic__showCar-info{
+                        flex-direction: column;
+                        padding: 0;
+                        margin: 0;
+                        align-items: center;
+                        justify-content: center;
+                        border: none;
+                        .Mechanic__info{
+                            width: 100%;
+                            .Mechanic__info-container{
+                            
+                                h3{
+                                    margin-top: 1rem;
+                                    font-size: 1.5rem;
+                                }
+                                p{
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                        }
+                        .Mechanic__newOrder{
+                            flex-direction: column;
+                            padding: 0;
+                            margin: 0;
+                            h3{
+                                font-size: 1.5rem;
+                            }
+                            form{
+                                flex-direction: column;
+
+                                textarea {
+                                    width: 100%;
+                                    height: 200px
+                                }
+
+                                button{
+                                    position: relative;
+                                    bottom: 0;
+                                    right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+
+            .Vheicle__orders-container{
+                padding: 2rem 0rem;
+                margin: 0;
+                h1{
+                    font-size: 2rem;
+                }
+                .Order__container{
+                    gap: 0.5rem;
+                    width: 100%;
+                    margin: 0;
+                    padding: 1rem;
+                }
+                .Order__card{
+                    margin: 0 auto;
+                    padding: 10px;
+                    width: 100%;
+                    height: 100%;
+                    p{
+                        font-size: 0.8rem;
+
+                        h4{
+                            font-size: 0.8rem;
+                        }
+                    }
+                    span{
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
     }
 }

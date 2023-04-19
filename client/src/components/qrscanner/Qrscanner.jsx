@@ -24,13 +24,7 @@ const Qrscanner = (props) => {
   };
   return (
     <div className="Qrscanner">
-      <button
-        onClick={() => {
-          setStartScan(!startScan);
-        }}
-      >
-        {startScan ? "Parar" : "Escanear"}
-      </button>
+
       {startScan && (
         <>
           <select onChange={(e) => setSelected(e.target.value)}>
@@ -46,6 +40,13 @@ const Qrscanner = (props) => {
           />
         </>
       )}
+            <button
+        onClick={() => {
+          setStartScan(!startScan);
+        }}
+      >
+        {startScan ? "Parar" : "Escanear"}
+      </button>
       {loadingScan && <p>carregando...</p>}
     </div>
   );

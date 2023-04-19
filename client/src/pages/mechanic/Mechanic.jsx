@@ -62,10 +62,12 @@ function Mechanic() {
           <Qrscanner info={handleInfo} />
         </div>
         <div className="Mechanic__showCar">
-          <h1>Novo pedido:</h1>
+          <h1>Orçamento</h1>
           {vehicles ? (
             <div className="Mechanic__showCar-info">
               <div className="Mechanic__info">
+                <div className="Mechanic__info-container">
+                  <h3>Informação veículo</h3>
                 <p>
                   Marca: <span>{vehicles.brand}</span>
                 </p>
@@ -79,9 +81,10 @@ function Mechanic() {
                   Placa: <span>{vehicles.plate}</span>
                 </p>
               </div>
+              </div>
               <div className="Mechanic__newOrder">
+                <h3>Adicionar novo pedido</h3>
                 <form action="" onSubmit={handleOrder}>
-                  <h2>Adicionar orçamento:</h2>
                   <label htmlFor="">
                     Descrição do serviço
                     <textarea
@@ -102,7 +105,7 @@ function Mechanic() {
                     />
                   </label>
                   <label htmlFor="">
-                    Data de entrega
+                    Entrega
                     <input
                       name="deliveryDate"
                       type="date"
@@ -115,7 +118,7 @@ function Mechanic() {
               </div>
             </div>
           ) : (
-            <p>Nenhum veiculo encontrado</p>
+            <h4>Nenhum veiculo encontrado</h4>
           )}
         </div>
         {orders.length !== 0 && (
@@ -128,7 +131,7 @@ function Mechanic() {
                   <p>Preço: <h4>$R{order.price}</h4></p>
                   <p>Data de entrega: <h4>{order.deliveryDate}</h4></p>
                   <span
-                  style={ order.status === "Pendente" ? {backgroundColor: "crimson"} : order.status === "Em andamento" ? {backgroundColor: "orange"} : {backgroundColor: "green"}}
+                  style={ order.status === "Pendente" ? {backgroundColor: "#e40145"} : order.status === "Em andamento" ? {backgroundColor: "#ff9600"} : {backgroundColor: "#00c21d"}}
                   >{order.status}</span>
                 </div>
               ))}
