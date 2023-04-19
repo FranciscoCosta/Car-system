@@ -1,6 +1,8 @@
 .Home{
     width: 100%;
     min-height: 100vh;
+    background-color: whitesmoke;
+    overflow-x: hidden;
     
     .Home__container{
         width: 100%;
@@ -137,6 +139,83 @@
                 }
             }
         }
+
+        
+    }
+
+    @media screen and (max-width: 480px) {
+        padding-top: 0rem;
+        border: 1px saddlebrown solid;
+        position: relative;
+
+        .Home__container{
+            padding: 0;
+            margin: 0;
+
+            .Home__container-hero{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                padding-bottom: 3rem;
+
+                .container-info{
+                    padding: 0;
+                    align-items: center;
+                    justify-content: center;
+
+                    img{
+                        width: 10rem;
+                        align-self: center;
+                    }
+                    p{
+                        width: 90%;
+                        font-size: 1.5rem;
+                        line-height: 2.8rem;
+                        text-align: center;
+
+                        span{
+                            font-size: 1.6rem;
+                        }
+                    }
+
+                    button{
+                        padding: 0.25rem 0.5rem;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        letter-spacing: 2px;
+                        text-transform: capitalize;
+                        cursor: pointer;
+                        width: 150px;
+                        min-height: 45px;
+                    }
+
+                }
+                .Hero__img{
+                    display: none;
+                }
+            }
+
+            .Home__container-service{
+                padding-top: 2rem;
+                height: max-content;
+
+                h2{
+                    margin-bottom: 1rem;
+                }
+
+                .container-service{
+                    margin-top: 0;
+                    gap: 2rem;
+                    flex-direction: column;
+                    height: max-content;
+                    margin-bottom: 1rem;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+
 
         
     }
