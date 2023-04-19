@@ -72,7 +72,7 @@ function Register() {
           <button type="submit">Registrar</button>
         </div>
         <div className="right">
-          <h1>Quero ser mecânico na Ultracar</h1>
+          <h1>Quero ser mecânico na AutoMatch</h1>
           <div className="toggle">
             <label htmlFor="">Quero ser mecânico na Ultracar</label>
             <label className="switch">
