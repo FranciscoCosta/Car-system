@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Footer } from "./components/index";
-import {Home,Login, Register, Client, Mechanic} from "./pages/index"
+import {Home,Login, Register, Client, Mechanic, MechanicOrders} from "./pages/index"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
@@ -35,6 +35,10 @@ function App() {
         {
           path: "/mechanic",
           element: <Mechanic />,
+        },
+        {
+          path: "/mechanic/orders",
+          element: <MechanicOrders />,
         },
         {
           path: "/client",

@@ -33,6 +33,7 @@ const getOrdersClientVheicle = async (req, res) => {
 };
 
 const getOrdersMechanicVheicle = async (req, res) => {
+    console.log(req.params)
     const { id } = req.params;
     const orders = await getOrdersMechanicVheicleService(id);
     if (orders) {

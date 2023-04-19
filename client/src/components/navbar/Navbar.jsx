@@ -93,7 +93,9 @@ const fetchUser = async () => {
           <div className="Navbar__menu">
             <ul>
               <h2>Novo Serviço</h2>
-              <h2>Lista de serviço</h2>
+              <h2
+              onClick={()=> navigate("/mechanic/orders")}
+              >Lista de serviços</h2>
               <h2>Peças</h2>
               <button 
               type="button"
@@ -138,8 +140,8 @@ const fetchUser = async () => {
         ) : (
           <div className="Navbar__menu">
             <ul>
-              <BsFillBookmarkPlusFill/>
-              <AiOutlineOrderedList/>
+              <BsFillBookmarkPlusFill onClick={()=> navigate("/mechanic")}/>
+              <AiOutlineOrderedList onClick={()=> navigate("/mechanic/orders")}/>
               <GiCarWheel/>
               <RiLogoutBoxFill
               type="button"
