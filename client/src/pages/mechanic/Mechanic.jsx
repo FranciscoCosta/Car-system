@@ -4,6 +4,8 @@ import AddOrderAPI from "../../service/AddOrder";
 import Qrscanner from "../../components/qrscanner/Qrscanner";
 import getAllOrdersVheicle from "../../service/getAllOrderVheicle";
 import { useNavigate } from "react-router-dom";
+import { AiFillMessage } from "react-icons/ai";
+import { BsDoorOpenFill } from "react-icons/bs";
 
 function Mechanic() {
   const navigate = useNavigate();
@@ -127,12 +129,31 @@ function Mechanic() {
             <div className="Order__container">
               {orders.map((order) => (
                 <div className="Order__card" key={order._id}>
-                  <p>Descrição: <h4>{order.description}</h4></p>
-                  <p>Preço: <h4>$R{order.price}</h4></p>
-                  <p>Data de entrega: <h4>{order.deliveryDate}</h4></p>
                   <span
-                  style={ order.status === "Pendente" ? {backgroundColor: "#e40145"} : order.status === "Em andamento" ? {backgroundColor: "#ff9600"} : {backgroundColor: "#00c21d"}}
-                  >{order.status}</span>
+                    style={{
+                      backgroundColor:
+                        order.status === "Pendente"
+                          ? "#e40145"
+                          : order.status === "Em andamento"
+                          ? "#ff9600"
+                          : "#00c21d",
+                    }}
+                  >
+                    {order.status}
+                  </span>
+                  <h3>
+                    Preço: <p>{order.price}</p>
+                  </h3>
+                  <h3>
+                    Data de entrega: <p>{order.deliveryDate}</p>
+                  </h3>
+                  <h3>
+                    Descrição: <p>{order.description}</p>
+                  </h3>
+                  <div>
+                    <BsDoorOpenFill />
+                    <AiFillMessage />
+                  </div>
                 </div>
               ))}
             </div>
