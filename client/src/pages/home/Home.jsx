@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./Home.scss";
 import { hero, Logo } from "../../assets/index";
 import { BsFillFileTextFill } from "react-icons/bs";
@@ -9,6 +9,16 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
 
+
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+    if(currentUser.isMechanic){
+      navigate("/mechanic")
+    }if(currentUser.isMechanic){
+      navigate("/client")
+    }
+  }, [])
+  
   const navigate = useNavigate();
   return (
     <div className="Home">
