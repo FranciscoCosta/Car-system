@@ -10,10 +10,13 @@ const registerVheicleService = async (vheicle) => {
     }
 }
 
-
 const getVheiclesService = async (id) => {
     const vheicles = await Vheicle.find( { userId: id });
     return vheicles;
     }
 
-export { registerVheicleService, getVheiclesService }
+const deleteVheiclesService = async(id)=>{
+    const vheicle = await Vheicle.findByIdAndDelete(id);
+    return vheicle;
+}
+export { registerVheicleService, getVheiclesService , deleteVheiclesService}

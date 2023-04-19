@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Client.scss";
 import { getVehiclesAPI } from "../../service/GetVheicles";
 import { RegisterVheicle } from "../../service/RegisterVheicle";
+import  deleteVheicle  from "../../service/DeleteVheicle";
 import QRCode from "react-qr-code";
 
 function Client() {
@@ -46,6 +47,11 @@ function Client() {
       console.log(err);
     }
   };
+
+  const handleDelete = async (id) => {
+    const deleteVh = await deleteVheicle(id);
+    fetchVehicles();
+  }
   return (
     <div className="Client">
       <div className="Client__container">
@@ -114,7 +120,10 @@ function Client() {
                   <h3>
                     Placa:<p>{vh.plate}</p>
                   </h3>
-                  <button>Remover</button>
+                  <button
+                  onClick={()=> handleDelete(vh._id)}
+                  type="button"
+                  >Remover</button>
                   <div
                     style={{
                       height: "auto",
