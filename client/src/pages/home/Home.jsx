@@ -5,8 +5,11 @@ import { BsFillFileTextFill } from "react-icons/bs";
 import { MdCarRepair } from "react-icons/md";
 import { BiTimer } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+
+  const navigate = useNavigate();
   return (
     <div className="Home">
       <div className="Home__container">
@@ -25,6 +28,7 @@ function Home() {
               <span>AutoMatch</span>!
             </p>
             <button
+            type="button"
               onClick={() => {
                 navigate("/register");
               }}
@@ -41,7 +45,7 @@ function Home() {
           </motion.div>
         </div>
         <div className="Home__container-service">
-          <h2>Serviços</h2>
+          <h2 id="Servico">Serviços</h2>
           <motion.div
             whileInView={{ y: [100, 0], opacity: [0, 1] }}
             transition={{ duration: 0.5 }}
@@ -68,9 +72,6 @@ function Home() {
               <p>Mantenha seu veículo em dia, agende a sua manutenção .</p>
             </div>
           </motion.div>
-        </div>
-        <div className="Home__container-contato">
-          <h2>Contato</h2>
         </div>
       </div>
     </div>

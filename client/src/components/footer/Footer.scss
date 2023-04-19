@@ -1,0 +1,97 @@
+.Footer{
+    width: 100%;
+    overflow-x: hidden;
+
+    .Footer__container{
+        border-top: 1px solid rgba(0, 0, 0, 0.5);
+        background-color: whitesmoke;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 4rem;
+        
+        .Footer__container-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            
+            .Footer__container-info-social,  .Footer__container-info-contact{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                
+                h3{
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    margin: 0 0 1rem 0;
+                    color: var(--primary-color);
+                }
+                .Footer__info{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: start;
+                    width: 24rem;
+                    padding-left: 4rem;
+                    gap: 1rem;
+
+                    svg{
+                        width: 30px;
+                        height: 30px;
+                        margin: 0 10px;
+                        color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+        .Footer__container-credits{
+            margin-top: 2rem;
+            padding-bottom: 2rem;
+            p{
+                font-weight: 700;
+                color: var(--secondary-color);
+            }
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .Footer__container{
+            padding: 0;
+            padding-top: 2rem;
+
+            .Footer__container-info{
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                
+                .Footer__container-info-social,  .Footer__container-info-contact{
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    gap: 0.5rem;
+                    
+                    .Footer__info{
+                        padding: 0;
+                        align-items: center;
+                        gap: 0.25rem;
+                        flex-direction: column;
+
+                        h3{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+            .Footer__container-credits{
+                width: 90%;
+                margin-bottom: 5rem;
+                text-align: center;
+            }
+        }
+}
+}

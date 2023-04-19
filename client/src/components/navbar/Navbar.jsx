@@ -66,7 +66,7 @@ const fetchUser = async () => {
               >Home</h2>
               <h2
               id="Serviços"
-              onClick={() => {navigate("/")}}
+              onClick={() => {navigate("#Servico")}}
               >Serviços</h2>
               <h2
               onClick={() => {navigate("/register")}}
