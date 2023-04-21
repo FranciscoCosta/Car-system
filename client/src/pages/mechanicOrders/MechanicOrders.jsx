@@ -3,8 +3,10 @@ import "./MechanicOrders.scss";
 import GetOrdersByMechanic from "../../service/GetOrdersByMechanic";
 import { AiFillMessage } from "react-icons/ai";
 import { BsDoorOpenFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function MechanicOrders() {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalOrders, setTotalOrders] = useState([]);
@@ -72,14 +74,16 @@ function MechanicOrders() {
               {orders.map((order) => (
                 <div className="MechanicOrders__container-items-list-item">
                   <span
-                    style={{
-                      backgroundColor:
-                        order.status === "Pendente"
-                          ? "#e40145"
-                          : order.status === "Em andamento"
-                          ? "#ff9600"
-                          : "#00c21d",
-                    }}
+              style={{
+                backgroundColor:
+                  order.status === "Pendente"
+                    ? "#e40145"
+                    : order.status === "Em andamento"
+                    ? "#ff9600"
+                    : order.status === "Pronto para entrega"
+                    ? "#2fc18c"
+                    : "#0ff74d", 
+              }}
                   >
                     {order.status}
                   </span>

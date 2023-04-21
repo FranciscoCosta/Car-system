@@ -1,17 +1,26 @@
 import React from "react";
 import { Navbar, Footer } from "./components/index";
-import {Home,Login, Register, Client, Mechanic, MechanicOrders, ClientOrders, ClientOrder} from "./pages/index"
+import {
+  Home,
+  Login,
+  Register,
+  Client,
+  Mechanic,
+  MechanicOrders,
+  ClientOrders,
+  ClientOrder,
+  MechanicOrder,
+} from "./pages/index";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
-
   const Layout = () => {
     return (
-        <>
-          <Navbar />
-          <Outlet />
-          <Footer />
-        </>
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
     );
   };
 
@@ -42,7 +51,7 @@ function App() {
         },
         {
           path: "/mechanic/order/:id",
-          element: <ClientOrders />,
+          element: <MechanicOrder />,
         },
         {
           path: "/client",

@@ -80,7 +80,9 @@ function ClientOrders() {
                           ? "#e40145"
                           : order.status === "Em andamento"
                           ? "#ff9600"
-                          : "#00c21d",
+                          : order.status === "Pronto para entrega"
+                          ? "#2fc18c"
+                          : "#0ff74d",
                     }}
                   >
                     {order.status}
@@ -96,7 +98,7 @@ function ClientOrders() {
                   </h3>
                   <div>
                     <BsDoorOpenFill
-                    onClick={() => navigate(`/client/order/${order._id}`)}
+                      onClick={() => navigate(`/client/order/${order._id}`)}
                     />
                     <AiFillMessage />
                   </div>
