@@ -5,5 +5,6 @@ import Mechanic from "./mechanic"
 import Client from "./client"
 import MechanicOrders from "./mechanicOrders"
 import ClientOrders from "./clientOrders"
+import ClientOrder from "./clientOrder"
 
-export { Home, Login, Register , Mechanic, Client, MechanicOrders, ClientOrders};
+export { Home, Login, Register , Mechanic, Client, MechanicOrders, ClientOrders, ClientOrder};

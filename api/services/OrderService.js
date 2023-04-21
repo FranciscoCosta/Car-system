@@ -1,4 +1,6 @@
 import Order from '../models/Order.js';
+import User from '../models/User.js';
+import Vheicle from '../models/Vheicle.js';
 
 const registerOrderService = async (order) => {
     try{
@@ -37,6 +39,25 @@ const getOrdersMechanicVheicleService = async (id) => {
     }
 }
 
+const getOrderInfoService = async (id) => {
+    try{
+        const order = await Order.findById(id);
+        const client = await User.findById(order.clientId);
+        const mechanic = await User.findById(order.mechanicId);
+        const vehicle = await Vheicle.findById(order.vehicleId);
+        const orderInfo = {
+            order: order,
+            client: client,
+            mechanic: mechanic,
+            vehicle: vehicle
+        }
+        return orderInfo;
+    }catch(error){
+        console.log(error);
+    }
+}
 
 
-export { registerOrderService, getOrdersVheicleService, getOrdersClientVheicleService, getOrdersMechanicVheicleService};
+
+
+export { registerOrderService, getOrdersVheicleService, getOrdersClientVheicleService, getOrdersMechanicVheicleService, getOrderInfoService};

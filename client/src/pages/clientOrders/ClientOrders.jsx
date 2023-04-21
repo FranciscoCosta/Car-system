@@ -3,8 +3,10 @@ import "./ClientOrders.scss";
 import GetOrdersByClient from "../../service/GetOrdersByClient";
 import { AiFillMessage } from "react-icons/ai";
 import { BsDoorOpenFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function ClientOrders() {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalOrders, setTotalOrders] = useState([]);
@@ -93,7 +95,9 @@ function ClientOrders() {
                     Descrição: <p>{order.description}</p>
                   </h3>
                   <div>
-                    <BsDoorOpenFill />
+                    <BsDoorOpenFill
+                    onClick={() => navigate(`/client/order/${order._id}`)}
+                    />
                     <AiFillMessage />
                   </div>
                 </div>

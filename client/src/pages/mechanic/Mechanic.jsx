@@ -151,7 +151,9 @@ function Mechanic() {
                     Descrição: <p>{order.description}</p>
                   </h3>
                   <div>
-                    <BsDoorOpenFill />
+                    <BsDoorOpenFill 
+                    onClick={() => navigate(`/mechanic/order/${order._id}`)}
+                    />
                     <AiFillMessage />
                   </div>
                 </div>
