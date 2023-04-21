@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getDetailsOrder from "../../service/getDetailsOrder";
 import "./ClientOrder.scss";
+import aproveOrder from "../../service/AproveOrder";
 
 function ClientOrder() {
   const [order, setOrder] = useState({});
@@ -20,6 +21,11 @@ function ClientOrder() {
   useEffect(() => {
     fetchOrder();
   }, []);
+
+  const handleAprove = async () => {
+    const response = await aproveOrder(id, "Aprovado");
+    fetchOrder();
+  };
 
   return (
     <div className="ClientOrder">
@@ -69,13 +75,15 @@ function ClientOrder() {
               <div className="Button__container">
               <button
               type="button"
-              disabled={order.order.status === "Pedente"}
+              disabled={order.order.status !== "Pendente"}
+              onClick={()=> handleAprove(order.order._id,"Em andamento")}
               >
                 Aprovar Pedido
               </button>
               <button
               type="button"
-              disabled={order.order.status !== "Pedente"}
+              disabled={order.order.status !== "Em andamento"}
+              onClick={()=> handleAprove(order.order._id,"Concluído")}
               >
                 Serviço concluído
               </button>
