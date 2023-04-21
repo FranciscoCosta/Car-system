@@ -22,8 +22,8 @@ function ClientOrder() {
     fetchOrder();
   }, []);
 
-  const handleAprove = async () => {
-    const response = await aproveOrder(id, "Aprovado");
+  const handleAprove = async (id,status) => {
+    const response = await aproveOrder(id, status);
     fetchOrder();
   };
 
@@ -52,7 +52,7 @@ function ClientOrder() {
             <div className="ClientOrder__container__info__service">
               <h2>Serviço</h2>
               <p>
-                <span>R$:</span> {order.order.price}
+                <span>Preço:</span> R${order.order.price}
               </p>
               <p>
                 <span> Data de entrega:</span>

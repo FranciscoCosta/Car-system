@@ -1,139 +1,199 @@
 .ClientOrder {
-    width: 100%;
-    min-height: 50vh;
-    background-color: whitesmoke;
-    overflow-x: hidden;
-  
-    .ClientOrder__container {
-      width: 90%;
-      gap: 2rem;
-      margin: 12rem auto;
+  width: 100%;
+  min-height: 50vh;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+
+  .ClientOrder__container {
+    width: 90%;
+    gap: 2rem;
+    margin: 12rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: max-content;
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+    .ClientOrder__container__info {
       display: flex;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
       justify-content: center;
-      flex-direction: column;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      height: max-content;
+      gap: 2rem;
+      width: 100%;
+
+      .ClientOrder__container__info__client {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 5rem;
+
+        .ClientOrder__container__info__mechanic,
+        .ClientOrder__container__info__vehicle {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 4rem;
+          gap: 1.5rem;
+
+          h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+          }
+
+          p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+
+            span {
+              font-weight: 600;
+              color: var(--primary-color);
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+
+      .ClientOrder__container__info__service {
+        width: 50%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 4rem;
+        position: relative;
+        gap: 1.5rem;
+
+        h2 {
+          font-size: 1.7rem;
+          font-weight: 600;
+          color: var(--secondary-color);
+        }
+
+        p {
+          font-size: 1.2rem;
+          font-weight: 500;
+          color: var(--secondary-color);
+
+          span {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+          }
+        }
+
+        h3 {
+          color: whitesmoke;
+          padding: 5px 15px;
+          border-radius: 25px;
+          font-size: 1.2rem;
+          align-self: center;
+          font-weight: 600;
+          position: absolute;
+          top: 0;
+          left: 20%;
+        }
+
+        .Button__container {
+          display: flex;
+          gap: 4rem;
+          width: 100%;
+
+          button {
+            padding: 0.5rem 0.25rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background-color: var(--primary-color);
+            cursor: pointer;
+            width: 160px;
+            border-radius: 5px;
+            margin: 2rem 0.1rem;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              background-color: var(--secondary-color);
+              color: var(--primary-color);
+            }
+
+            &:disabled {
+              background-color: #e5e5e5;
+              color: #959595;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    padding-top: 0rem;
+    position: relative;
+
+    .ClientOrder__container {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+
       h1 {
-        font-size: 2.5rem;
+        margin-top: 2rem;
+        font-size: 2rem;
         font-weight: 600;
         color: var(--secondary-color);
       }
-      .ClientOrder__container__info{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 2rem;
-        width: 100%;
+      .ClientOrder__container__info {
+        flex-direction: column;
 
-        .ClientOrder__container__info__client{
-            flex: 1;
-            display: flex;
+        .ClientOrder__container__info__client {
+            flex-direction: column;
+            padding: 0;
             align-items: center;
-            justify-content: start;
-            gap: 5rem;
+            justify-content: center;
+            width: 100%;
+            gap: 1.5rem;
             
-            .ClientOrder__container__info__mechanic, .ClientOrder__container__info__vehicle{
-                width: 100%;
-                display: flex;
-                align-items: flex-start;
-                flex-direction: column;
-                justify-content: center;
-                margin-left: 4rem;
-
-                h2{
-                    font-size: 1.7rem;
-                    font-weight: 600;
-                    color: var(--secondary-color);
-                }
-
-                p{
-                    font-size: 1.2rem;
-                    font-weight: 500;
-                    color: var(--secondary-color);
-
-                    span{
-                        font-weight: 600;
-                        color: var(--primary-color);
-                        margin-right: 0.5rem;
-                    }
-                }
+            .ClientOrder__container__info__mechanic,
+            .ClientOrder__container__info__vehicle{
+                margin-left: 0;
+                gap: 1rem;
+                align-items: center;
             }
         }
-
         .ClientOrder__container__info__service{
-            width: 50%;
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            justify-content: center;
-            margin-left: 4rem;
-            position: relative;
-
-            h2{
-                font-size: 1.7rem;
-                font-weight: 600;
-                color: var(--secondary-color);
-            }
-
-            p{
-                font-size: 1.2rem;
-                font-weight: 500;
-                color: var(--secondary-color);
-
-                span{
-                    font-weight: 600;
-                    color: var(--primary-color);
-                    margin-right: 0.5rem;
-                }
-
-            }
-
-            h3{
-                color: whitesmoke;
-                padding: 5px 15px;
-                border-radius: 25px;
-                font-size: 1.2rem;
-                align-self: center;
-                font-weight: 600;
-                position: absolute;
-                top: 0;
-                left: 20%;
-            }
-        
-        .Button__container{
-            display: flex;
-            gap: 4rem;
             width: 100%;
+            margin: 0;
+            align-items: center;
+            h3{
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+        .Button__container {
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+            width: 100%;
+            margin-bottom: 2rem;
+            padding: 0;
 
             button{
-                padding: 0.5rem 0.25rem;
-                border: none;
-                font-size: 1rem;
-                font-weight: 600;
-                color: white;
-                background-color: var(--primary-color);
-                cursor: pointer;
-                width: 160px;
-                border-radius: 5px;
-                margin: 2rem 0.10rem;
-                transition: all 0.3s ease-in-out;
-                &:hover{
-                    background-color: var(--secondary-color);
-                    color: var(--primary-color);
-                }
-
-                &:disabled{
-                    background-color: #e5e5e5;
-                    color:#959595;
-                    cursor: not-allowed;
-                }
+                align-self: center;
+                margin: 0.5rem 0rem;
             }
         }
         }
-        }
-
-
     }
+}
+}
+
 }
