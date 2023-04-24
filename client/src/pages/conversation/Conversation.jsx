@@ -3,8 +3,12 @@ import './Conversation.scss'
 import { AiFillMessage } from "react-icons/ai";
 import GetAllConversationsAPI from '../../service/GetAllConversations';
 import moment from "moment";
+import CreateConversationAPI from "../../service/CreateConversation";
+import GetConversation from "../../service/GetConversation";
+import { useNavigate } from 'react-router-dom';
 
 function Conversation() {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("currentUser"))
  const [conversations, setconversations] = useState([]);
 
@@ -18,8 +22,25 @@ function Conversation() {
    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const conversationArray = await GetAllConversationsAPI(currentUser._id);
   setconversations(conversationArray.data)
-
  }
+
+ const handleMessage = async (mechanicId, clientId) => {
+  const data = {
+    mechanicId,
+    clientId,
+  };
+  const id = `${mechanicId}${clientId}`;
+  const isCreated = await GetConversation(id);
+  if(isCreated.status === 200){
+    navigate(`/messages/:${id}`)
+  }
+  else{
+    await CreateConversationAPI(data);
+    navigate(`/messages/:${id}`)
+  }
+  // 
+  // console.log(response);
+};
 
  
  
@@ -42,7 +63,9 @@ function Conversation() {
               <td>{user.isMechanic ? conversation.clientName : conversation.mechanicName}</td>
               <td>{conversation.lastMessage}</td>
               <td>{moment(conversation.updatedAt).fromNow()}</td>
-              <td><AiFillMessage/></td>
+              <td><AiFillMessage 
+              onClick={()=> handleMessage(conversation.mechanicId, conversation.clientId)}
+              /></td>
             </tr>
           ))}
             </tbody>

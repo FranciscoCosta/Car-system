@@ -3,12 +3,35 @@ import { useParams } from "react-router-dom";
 import getDetailsOrder from "../../service/getDetailsOrder";
 import "./MechanicOrder.scss";
 import aproveOrder from "../../service/AproveOrder";
+import CreateConversationAPI from "../../service/CreateConversation";
+import GetConversation from "../../service/GetConversation";
+import { useNavigate } from "react-router-dom";
 
 function MechanicOrder() {
+  const navigate = useNavigate();
   const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
+
+
+  const handleMessage = async (mechanicId, clientId) => {
+    const data = {
+      mechanicId,
+      clientId,
+    };
+    const id = `${mechanicId}${clientId}`;
+    const isCreated = await GetConversation(id);
+    if(isCreated.status === 200){
+      navigate(`/messages/:${id}`)
+    }
+    else{
+      await CreateConversationAPI(data);
+      navigate(`/messages/:${id}`)
+    }
+    // 
+    // console.log(response);
+  };
 
   const fetchOrder = async () => {
     console.log(id);
@@ -84,6 +107,7 @@ function MechanicOrder() {
               </button>
               <button
               type="button"
+              onClick={()=> handleMessage(order.order.mechanicId, order.order.clientId)}
               >
                 Menssagem
               </button>

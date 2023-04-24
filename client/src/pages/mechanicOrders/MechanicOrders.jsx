@@ -4,6 +4,8 @@ import GetOrdersByMechanic from "../../service/GetOrdersByMechanic";
 import { AiFillMessage } from "react-icons/ai";
 import { BsDoorOpenFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import CreateConversationAPI from "../../service/CreateConversation";
+import GetConversation from "../../service/GetConversation";
 
 function MechanicOrders() {
   const navigate = useNavigate();
@@ -14,6 +16,25 @@ function MechanicOrders() {
   useEffect(() => {
     fetchOrdersMechanic();
   }, []);
+
+
+  const handleMessage = async (mechanicId, clientId) => {
+    const data = {
+      mechanicId,
+      clientId,
+    };
+    const id = `${mechanicId}${clientId}`;
+    const isCreated = await GetConversation(id);
+    if(isCreated.status === 200){
+      navigate(`/messages/:${id}`)
+    }
+    else{
+      await CreateConversationAPI(data);
+      navigate(`/messages/:${id}`)
+    }
+    // 
+    // console.log(response);
+  };
 
   const fetchOrdersMechanic = async () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -100,7 +121,9 @@ function MechanicOrders() {
                     <BsDoorOpenFill 
                     onClick={() => navigate(`/mechanic/order/${order._id}`)}
                     />
-                    <AiFillMessage />
+                    <AiFillMessage 
+                    onClick={()=> handleMessage(order.mechanicId, order.clientId)}
+                    />
                   </div>
                 </div>
               ))}
