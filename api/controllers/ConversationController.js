@@ -1,4 +1,4 @@
-import { getAllConversationsService, createConversationService } from "../services/ConversationService.js";
+import { getAllConversationsService, createConversationService, getConversationService } from "../services/ConversationService.js";
 
 const getAllConversations = async (req, res) => {
     try {
@@ -18,4 +18,14 @@ const createConversation = async (req, res) => {
     }
 }
 
-export { getAllConversations, createConversation };
+const getConversation =async (req, res) =>{
+    try{
+        const conversation = await getConversationService(req.params.id);
+        if(conversation) return res.status(200).json({conversation})
+        return res.status(404).json({ message: "Não conseguiu encontrar conversa"})
+    }catch(error){
+        return res.satatus(500).json({ message: "Erro do servidor"})
+    }
+}
+
+export { getAllConversations, createConversation, getConversation };

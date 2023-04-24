@@ -8,3 +8,5 @@ const GetAllConversationsAPI = async (id) => {
         return err;
     }
 }
+
+export default GetAllConversationsAPI;

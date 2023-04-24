@@ -25,5 +25,13 @@ const createConversationService = async (conversation) => {
     }
 }
 
+const getConversationService = async(id)=>{
+    try {
+        const conversation = await Conversation.findOne({ id: id });
+        return conversation;
+    } catch (error) {
+        throw error;
+    }
+}
 
-export { getAllConversationsService, createConversationService };
+export { getAllConversationsService, createConversationService, getConversationService };

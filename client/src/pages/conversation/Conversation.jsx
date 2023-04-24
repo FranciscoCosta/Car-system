@@ -1,13 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import './Conversation.scss'
 import { AiFillMessage } from "react-icons/ai";
+import GetAllConversationsAPI from '../../service/GetAllConversations';
+import moment from "moment";
 
 function Conversation() {
-
+  const user = JSON.parse(localStorage.getItem("currentUser"))
  const [conversations, setconversations] = useState([]);
 
 
- const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+ useEffect(() => {
+  fetchAllConversation();
+ }, [])
+ 
+ 
+ const fetchAllConversation = async()=>{
+   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const conversationArray = await GetAllConversationsAPI(currentUser._id);
+  setconversations(conversationArray.data)
+
+ }
+
  
  
   return (
@@ -24,12 +37,14 @@ function Conversation() {
             </tr>
           </thead>
           <tbody>
+          {conversations.map((conversation)=> (
             <tr>
-              <td>João</td>
-              <td>Olá, tudo bem?</td>
-              <td>10/10/2021</td>
+              <td>{user.isMechanic ? conversation.clientName : conversation.mechanicName}</td>
+              <td>{conversation.lastMessage}</td>
+              <td>{moment(conversation.updatedAt).fromNow()}</td>
               <td><AiFillMessage/></td>
             </tr>
+          ))}
             </tbody>
         </table>}
       </div>

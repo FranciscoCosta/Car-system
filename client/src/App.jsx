@@ -11,6 +11,7 @@ import {
   ClientOrder,
   MechanicOrder,
   Conversation,
+  Messages,
 } from "./pages/index";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -69,6 +70,10 @@ function App() {
         {
           path: "/conversations",
           element: <Conversation />,
+        },
+        {
+          path: "/messages/:id",
+          element: <Messages />,
         }
       ],
     },

@@ -8,6 +8,7 @@ import ClientOrders from "./clientOrders";
 import ClientOrder from "./clientOrder";
 import MechanicOrder from "./mechanicOrder";
 import Conversation from "./conversation";
+import Messages from "./messages"
 
 
 export {
@@ -21,4 +22,5 @@ export {
   ClientOrder,
   MechanicOrder,
   Conversation,
+  Messages,
 };

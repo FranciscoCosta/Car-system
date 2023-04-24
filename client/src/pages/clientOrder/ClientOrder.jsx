@@ -4,8 +4,11 @@ import getDetailsOrder from "../../service/getDetailsOrder";
 import "./ClientOrder.scss";
 import aproveOrder from "../../service/AproveOrder";
 import CreateConversationAPI from "../../service/CreateConversation";
+import GetConversation from "../../service/GetConversation";
+import { useNavigate } from "react-router-dom";
 
 function ClientOrder() {
+  const navigate = useNavigate()
   const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -33,8 +36,17 @@ function ClientOrder() {
       mechanicId,
       clientId,
     };
-    const response = await CreateConversationAPI(data);
-    console.log(response);
+    const id = `${mechanicId}${clientId}`;
+    const isCreated = await GetConversation(id);
+    if(isCreated.status === 200){
+      navigate(`/messages/:${id}`)
+    }
+    else{
+      await CreateConversationAPI(data);
+      navigate(`/messages/:${id}`)
+    }
+    // 
+    // console.log(response);
   };
     
 
