@@ -80,7 +80,8 @@ function MechanicOrders() {
                 <option value="Todos">Todos</option>
                 <option value="Pendente">Pendente</option>
                 <option value="Em andamento">Em andamento</option>
-                <option value="Finalizado">Finalizado</option>
+                <option value="Pronto para entrega">Pronto para entrega</option>
+                <option value="Concluído">Concluído</option>
               </select>
             </div>
             <div className="MechanicOrders__filters-date">
