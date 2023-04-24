@@ -100,7 +100,9 @@ function ClientOrders() {
                     <BsDoorOpenFill
                       onClick={() => navigate(`/client/order/${order._id}`)}
                     />
-                    <AiFillMessage />
+                    <AiFillMessage 
+                    
+                    />
                   </div>
                 </div>
               ))}

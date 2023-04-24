@@ -103,7 +103,7 @@ function Navbar() {
                     navigate("/conversations");
                   }}
                 >
-                  Menssagens
+                  Mensagens
                 </h2>
                 <button onClick={handleLogout}>Logout</button>
               </ul>
@@ -126,7 +126,7 @@ function Navbar() {
                     navigate("/conversations");
                   }}
                 >
-                  Menssagens
+                  Mensagens
                 </h2>
                 <button type="button" onClick={handleLogout}>
                   Logout

@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import AuthRoute from "./routes/AuthRoute.js";
 import Vheicleroute from "./routes/VheicleRoute.js";
 import OrderRoute from "./routes/OrderRoute.js";
+import ConversationRoute from "./routes/ConversationRoute.js";
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(AuthRoute);
 app.use(Vheicleroute);
 app.use(OrderRoute);
+app.use(ConversationRoute)
 
 app.get("/", (req, res) => {
   res.send("Ultracar");

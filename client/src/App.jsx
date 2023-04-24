@@ -10,6 +10,7 @@ import {
   ClientOrders,
   ClientOrder,
   MechanicOrder,
+  Conversation,
 } from "./pages/index";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -65,6 +66,10 @@ function App() {
           path: "/client/order/:id",
           element: <ClientOrder />,
         },
+        {
+          path: "/conversations",
+          element: <Conversation />,
+        }
       ],
     },
   ]);

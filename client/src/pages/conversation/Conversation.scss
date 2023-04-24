@@ -1,0 +1,17 @@
+.Conversation {
+    width: 100%;
+    min-height: 100vh;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+  
+    .Conversation__container {
+      width: 90%;
+      gap: 2rem;
+      margin: 2rem auto;
+      padding-top: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+}

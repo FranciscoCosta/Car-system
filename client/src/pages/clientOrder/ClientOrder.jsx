@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import getDetailsOrder from "../../service/getDetailsOrder";
 import "./ClientOrder.scss";
 import aproveOrder from "../../service/AproveOrder";
+import CreateConversationAPI from "../../service/CreateConversation";
 
 function ClientOrder() {
   const [order, setOrder] = useState({});
@@ -26,6 +27,17 @@ function ClientOrder() {
     const response = await aproveOrder(id, status);
     fetchOrder();
   };
+
+  const handleMessage = async (mechanicId, clientId) => {
+    const data = {
+      mechanicId,
+      clientId,
+    };
+    const response = await CreateConversationAPI(data);
+    console.log(response);
+  };
+    
+
 
   return (
     <div className="ClientOrder">
@@ -91,6 +103,7 @@ function ClientOrder() {
               </button>
               <button
               type="button"
+              onClick={()=> handleMessage(order.order.mechanicId, order.order.clientId)}
               >
                 Menssagem
               </button>
