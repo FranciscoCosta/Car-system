@@ -25,11 +25,11 @@ function ClientOrders() {
     const id = `${mechanicId}${clientId}`;
     const isCreated = await GetConversation(id);
     if(isCreated.status === 200){
-      navigate(`/messages/:${id}`)
+      navigate(`/messages/${id}`)
     }
     else{
       await CreateConversationAPI(data);
-      navigate(`/messages/:${id}`)
+      navigate(`/messages/${id}`)
     }
     // 
     // console.log(response);

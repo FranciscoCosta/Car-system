@@ -2,21 +2,41 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Messages.scss";
 import { useParams } from "react-router-dom";
+import CreateMessage from "../../service/CreateMessage";
+import GetAllMessages from "../../service/GetAllMessages";
 
 const Messages = () => {
   const { id } = useParams();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [update, setupdate] = useState(false);
-
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(currentUser)
   useEffect(() => {
+    getMessages();
   }, [update]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const message= {
+      conversationId : id,
+      userId: currentUser._id,
+      desc : newMessage,
+    }
+    const messageCreate = await CreateMessage(message);
+    console.log(messageCreate);
+    setupdate(!update);
+
   }
+
+  const getMessages = async () => {
+    
+    setIsLoading(true);
+    const messages = await GetAllMessages(id);
+    setMessages(messages);
+    setIsLoading(false);
+  };
 
 
   return (
