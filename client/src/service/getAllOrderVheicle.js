@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getAllOrdersVheicle = async (id) => {
     try{
-        const response = await axios.get(`http://localhost:8000/api/v1/orders/${id}`);
+        const response = await axios.get(`https://automatch.onrender.com/api/v1/orders/${id}`);
         return response.data;
     }catch(err){
         console.log(err)

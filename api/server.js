@@ -13,14 +13,19 @@ const app = express();
 app.use(bodyParser.json());
 
 dotenv.config();
+
+// Enable CORS for all routes
 app.use(cors({ origin: '*' }));
-app.use(cors());
+
 app.use(express.json());
 app.use(AuthRoute);
 app.use(Vheicleroute);
 app.use(OrderRoute);
 app.use(ConversationRoute)
 app.use(messageRoute)
+
+// Enable preflight requests for all routes
+app.options('*', cors());
 
 app.get("/", (req, res) => {
   res.send("Ultracar");
