@@ -27,7 +27,6 @@ function Client() {
       const vehicles = await getVehiclesAPI(user._id);
       setVehicles(vehicles);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -44,7 +43,6 @@ function Client() {
       const newVehicle = await RegisterVheicle(vheicleUser);
       fetchVehicles();
     } catch (err) {
-      console.log(err);
     }
   };
 

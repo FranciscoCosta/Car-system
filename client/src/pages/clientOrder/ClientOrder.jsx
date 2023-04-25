@@ -15,9 +15,7 @@ function ClientOrder() {
   const { id } = useParams();
 
   const fetchOrder = async () => {
-    console.log(id);
     const order = await getDetailsOrder(id);
-    console.log(order);
     setOrder(order);
     setLoading(false);
   };
@@ -45,8 +43,6 @@ function ClientOrder() {
       await CreateConversationAPI(data);
       navigate(`/messages/${id}`)
     }
-    // 
-    // console.log(response);
   };
     
 

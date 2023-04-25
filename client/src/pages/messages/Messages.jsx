@@ -12,7 +12,6 @@ const Messages = () => {
   const [newMessage, setNewMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [update, setupdate] = useState(false);
-  console.log(currentUser)
   useEffect(() => {
     getMessages();
   }, [update]);
@@ -25,7 +24,6 @@ const Messages = () => {
       desc : newMessage,
     }
     const messageCreate = await CreateMessage(message);
-    console.log(messageCreate);
     setupdate(!update);
 
   }

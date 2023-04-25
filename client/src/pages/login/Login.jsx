@@ -22,7 +22,6 @@ function Login() {
     try {
       const user = { username, password };
       const response = await loginAPI(user);
-      console.log(response)
       if (response.status === 201) {
         navigate('/login');
       }
@@ -34,7 +33,6 @@ function Login() {
         navigate("/client")
       }
     } catch (err) {
-      console.log(err.message)
       setError(err.message);
     }
   };

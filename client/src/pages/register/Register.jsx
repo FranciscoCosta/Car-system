@@ -18,16 +18,13 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user)
     try {
       const response = await registerAPI(user);
-      console.log(response)
       if (response.status === 201) {
         navigate('/login');
       }
       setError(response.response.data.message)
     } catch (err) {
-      console.log(err.message)
       setError(err.message);
     }
   };

@@ -8,7 +8,6 @@ const registerOrderService = async (order) => {
     await newOrder.save();
     return newOrder;
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -17,7 +16,6 @@ const getOrdersVheicleService = async (id) => {
     const orders = await Order.find({ vehicleId: id });
     return orders;
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -26,7 +24,6 @@ const getOrdersClientVheicleService = async (id) => {
     const orders = await Order.find({ clientId: id });
     return orders;
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -35,7 +32,6 @@ const getOrdersMechanicVheicleService = async (id) => {
     const orders = await Order.find({ mechanicId: id });
     return orders;
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -53,7 +49,6 @@ const getOrderInfoService = async (id) => {
     };
     return orderInfo;
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -62,7 +57,6 @@ const updateOrderService = async (id, status) => {
     const updateOrder = await Order.findByIdAndUpdate(id, { status: status });
     return updateOrder;
   } catch (error) {
-    console.log(error);
   }
 };
 

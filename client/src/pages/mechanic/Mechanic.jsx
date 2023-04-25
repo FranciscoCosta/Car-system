@@ -33,7 +33,6 @@ function Mechanic() {
   const fetchOrders = async (id) => {
     const ordersV = await getAllOrdersVheicle(id);
     setOrders(ordersV);
-    console.log(ordersV);
   };
 
   const handleOrder = async (e) => {

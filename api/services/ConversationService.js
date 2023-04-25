@@ -11,13 +11,12 @@ const getAllConversationsService = async (id) => {
 }
 
 const createConversationService = async (conversation) => {
-    console.log(conversation);
+    ;
     try {
         const mechanicName =  await User.findById(conversation.mechanicId);
         const clientName =  await User.findById(conversation.clientId);
         const id = conversation.mechanicId + conversation.clientId;
         const newConversation = new Conversation({ id, clientId : conversation.clientId, mechanicId :conversation.mechanicId , lastMessage: "", mechanicName: mechanicName.username, clientName: clientName.username});
-        console.log(newConversation)
         await newConversation.save();
         return newConversation;
     } catch (error) {

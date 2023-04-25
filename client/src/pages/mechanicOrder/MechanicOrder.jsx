@@ -29,14 +29,13 @@ function MechanicOrder() {
       await CreateConversationAPI(data);
       navigate(`/messages/${id}`)
     }
-    // 
-    // console.log(response);
+
   };
 
   const fetchOrder = async () => {
-    console.log(id);
+
     const order = await getDetailsOrder(id);
-    console.log(order);
+
     setOrder(order);
     setLoading(false);
   };

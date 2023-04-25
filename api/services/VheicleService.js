@@ -6,7 +6,6 @@ const registerVheicleService = async (vheicle) => {
         await newVheicle.save();
         return newVheicle;
     }catch(error){
-        console.log(error)
     }
 }
 

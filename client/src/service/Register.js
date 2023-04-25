@@ -5,7 +5,6 @@ const registerAPI = async (data) => {
         const response = await axios.post('https://automatch.onrender.com/api/v1/register', data);
         return response;   
     }catch(err){
-        console.log(err)
         return err;
     }
 }

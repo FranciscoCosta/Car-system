@@ -31,15 +31,11 @@ function ClientOrders() {
       await CreateConversationAPI(data);
       navigate(`/messages/${id}`)
     }
-    // 
-    // console.log(response);
   };
 
   const fetchOrdersClient = async () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(currentUser);
     const orders = await GetOrdersByClient(currentUser._id);
-    console.log(orders);
     setOrders(orders);
     setTotalOrders(orders);
     setLoading(false);
@@ -47,7 +43,6 @@ function ClientOrders() {
 
   const handleState = (e) => {
     const status = e.target.value;
-    console.log(status);
     if (status === "Todos") {
       fetchOrdersMechanic();
     } else {
@@ -60,7 +55,6 @@ function ClientOrders() {
 
   const handleDate = (e) => {
     const date = e.target.value;
-    console.log(date);
     const filteredOrders = totalOrders.filter(
       (order) => order.deliveryDate === date
     );

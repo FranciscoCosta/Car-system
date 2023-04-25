@@ -37,8 +37,7 @@ function Conversation() {
       await CreateConversationAPI(data);
       navigate(`/messages/${id}`);
     }
-    //
-    // console.log(response);
+
   };
 
   return (
